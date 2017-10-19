@@ -128,7 +128,7 @@
 					out.println("<td>"+xDoc.getFecha()+"</td>");
 					out.println("<td>"+xDoc.getHoraInicio()+"</td>");
 					out.println("<td>"+xDoc.getHoraFin()+"</td>");
-					out.println("<td>"+xDoc.getNom_docente()+"</td>");	
+					out.println("<td>"+xDoc.getNom_usuario()+"</td>");	
 					out.println("</tr>");
 					out.println("</tbody>");
 				}

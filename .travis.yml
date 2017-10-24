@@ -1,2 +1,2 @@
 language: java
-jdk: apache-tomcat-8.5.23
+jdk: Tomcat v8.5

@@ -200,9 +200,7 @@ public class ServletDocente extends HttpServlet {
 		service.insertarDocente(docente);
 		
 	
-			//request.setAttribute("msg", "Usuario no existe...");
-			// request.getRequestDispatcher("login.jsp").forward(request, response);
-		
+			
 		
 	}
 

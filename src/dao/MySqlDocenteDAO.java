@@ -114,7 +114,7 @@ public class MySqlDocenteDAO implements DocenteDAO {
 	@Override
 	public int actualizarDocente(DocenteDTO obj) {
 		int estado=-1;
-		//no hay datos que cambiar aún, no se deben cambiar codigos
+		//no hay datos que cambiar aun, no se deben cambiar codigos
 		/*
 		Connection cn=null;
 		

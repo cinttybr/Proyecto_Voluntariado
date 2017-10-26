@@ -195,7 +195,7 @@ public class ServletDocente extends HttpServlet {
 		docente.setCod_usuario(codigo); //mismo?
 		
 		
-		serviceUsuario.insertarUsuario(usuario); //siempre crear usuario primero
+		serviceUsuario.insertarUsuario(usuario);
 		
 		service.insertarDocente(docente);
 		

@@ -48,7 +48,7 @@ public class ServletAlumno extends HttpServlet {
 		
 		String codigo = request.getParameter("codigo");
 		String nombre = request.getParameter("nombre");
-		String apellido = request.getParameter("apellido"); //añadir en interfaz
+		String apellido = request.getParameter("apellido"); 
 		String carrera = request.getParameter("carrera"); //debe ser el codigo carrera el value del combo
 		String seccion = request.getParameter("seccion"); //debe ser el codigo seccion el value del combo
 		String fono = request.getParameter("fono");

@@ -158,7 +158,7 @@ public class MySqlInstitucionDAO implements InstitucionDAO
 			pstm=cn.prepareStatement(sql);
 			pstm.setInt(1, cod);
 			estado=pstm.executeUpdate();
-			//JOptionPane.showMessageDialog(null, "SE ELIMINÓ LOS DATOS: "+estado);
+			
 		} catch (Exception e) {
 				e.printStackTrace();
 			}

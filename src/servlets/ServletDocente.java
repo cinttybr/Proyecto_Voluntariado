@@ -174,7 +174,7 @@ public class ServletDocente extends HttpServlet {
 		
 		String codigo = request.getParameter("codigo");
 		String nombre = request.getParameter("nombre");
-		String apellido = request.getParameter("apellido"); //añadir a interfaz
+		String apellido = request.getParameter("apellido"); 
 		String fono = request.getParameter("fono");
 		String correo = request.getParameter("correo");
 		

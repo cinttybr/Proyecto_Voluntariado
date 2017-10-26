@@ -322,7 +322,7 @@ public class MySqlVoluntariadoDAO implements VoluntariadoDAO
 			pstm=cn.prepareStatement(sql);
 			pstm.setInt(1, cod);
 			estado=pstm.executeUpdate();
-			JOptionPane.showMessageDialog(null, "SE ELIMINÓ LOS DATOS!: "+estado);
+			JOptionPane.showMessageDialog(null, "SE ELIMINO LOS DATOS!: "+estado);
 		} catch (Exception e) {
 				e.printStackTrace();
 			}

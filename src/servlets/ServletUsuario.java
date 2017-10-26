@@ -84,7 +84,7 @@ public class ServletUsuario extends HttpServlet {
 				
 				
 			}else{
-				request.setAttribute("msg", "Contraseña incorrecta...");
+				request.setAttribute("msg", "ContraseÃ±a incorrecta...");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 		}else{

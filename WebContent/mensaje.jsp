@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="alert alert-success">
-  <strong>Exitoso!</strong> Se registraron los datos.
+  <strong>Exitoso!</strong> Se registraron los datos
 </div>
 </body>
 </html>

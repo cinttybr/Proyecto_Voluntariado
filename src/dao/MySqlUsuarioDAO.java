@@ -278,5 +278,40 @@ public class MySqlUsuarioDAO implements UsuarioDAO
 		}
 		
 	}
+
+	@Override
+	public void cambiarPass(String codigo,String nuevoPass) {
+		
+		Connection cn=null;
+		PreparedStatement pstm=null;
+		
+
+		try {
+			cn= new MySqlDBConexion().getConexion();
+			
+			String sql="Update tb_usuario set pass_usu=? where cod_usu=?";
+			pstm=cn.prepareStatement(sql);
+			
+			pstm.setString(1, nuevoPass);
+			pstm.setString(2, codigo);
+			
+	
+			pstm.executeUpdate();
+			
+		} catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				if(pstm!=null)pstm.close();
+				if(cn!=null)cn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		
+	}
 	
 }

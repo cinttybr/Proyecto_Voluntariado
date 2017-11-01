@@ -20,4 +20,6 @@ public interface UsuarioDAO
 	UsuarioDTO buscarCodigoUsuario(String cod);
 		
 	public void habilitarUsuario(String codigo, boolean habilitado);
+	
+	public void cambiarPass(String codigo,String nuevoPass);
 }

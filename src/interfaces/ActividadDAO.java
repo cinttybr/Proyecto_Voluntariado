@@ -16,4 +16,8 @@ public interface ActividadDAO
 	List<ActividadDTO> buscarPorEstado(String nombreEstado);
 	public List<ActividadDTO> listarActividadesVolu();
 	public List<ActividadDTO> buscarPorFecha(Date fecha);
+	
+	public int cambiarEstado(int codAct, int codEst );//1 aprobado 2 en revision 3 descartado
+	public int alumnosAnotados(String codAct);
+	
 }

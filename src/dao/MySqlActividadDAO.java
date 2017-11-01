@@ -345,4 +345,78 @@ public class MySqlActividadDAO implements ActividadDAO
 		
 		return data;
 	}
+
+	@Override
+	public int cambiarEstado(int codAct, int codEst) {
+		
+		int estado=-1;
+		Connection cn=null;
+		PreparedStatement pstm=null;
+		try {
+			cn= new MySqlDBConexion().getConexion();
+			String sql="Update tb_actividad set cod_estado=? where cod_act=?";
+			pstm=cn.prepareStatement(sql);
+			pstm.setInt(1, codEst);
+			pstm.setInt(2, codAct);
+			
+			
+			estado=pstm.executeUpdate();
+			
+		
+		} catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		finally{
+			try {
+				if(pstm!=null)pstm.close();
+				if(cn!=null)cn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return estado;
+		
+		
+	}
+
+	@Override
+	public int alumnosAnotados(String codAct) {
+		
+		int num=0;
+		Connection cn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
+		try{
+			cn = new MySqlDBConexion().getConexion();
+			String sql = "select Count(cod_alu) from tb_alumno where cod_act=?";
+			pstm = cn.prepareStatement(sql);
+			pstm.setString(1, codAct);
+			rs = pstm.executeQuery();
+			if(rs.next())
+			{
+				num = rs.getInt(1);
+				
+			}
+			
+		}catch(SQLException ex)
+		{
+			ex.printStackTrace();
+		}finally
+		{
+			try{
+				if(rs!=null)rs.close();
+				if(pstm!=null)pstm.close();
+				if(cn!=null)cn.close();
+				
+			}catch(Exception e2)
+			{
+				e2.printStackTrace();
+			}
+		}
+		
+		
+		return num;
+	}
 }

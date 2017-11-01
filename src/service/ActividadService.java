@@ -50,4 +50,17 @@ public class ActividadService
 	{
 		return objAct.buscarPorFecha(fecha);
 	}
+	
+	public int cambiarEstado(int codAct, int codEst)
+	{
+		return objAct.cambiarEstado(codAct, codEst);
+	}
+	
+	public int alumnosAnotados(String codAct)
+	{
+		//mejor usar jstl?
+		return objAct.alumnosAnotados(codAct);
+	}
+	
+	
 }

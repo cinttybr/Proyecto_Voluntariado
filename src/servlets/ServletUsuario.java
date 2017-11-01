@@ -38,8 +38,21 @@ public class ServletUsuario extends HttpServlet {
 			iniciarSesion(request,response);
 		else if (xtipo.equals("cerrarSesion"))
 			cerrarSesion(request,response);
+		else if (xtipo.equals("cambiarPass"))
+			cambiarPass(request,response);
 		
 	}
+	private void cambiarPass(HttpServletRequest request, HttpServletResponse response) {
+		
+		String codigo = request.getParameter("txt_codigoUsu");
+		String nuevoPass = request.getParameter("txt_pass");
+		
+		servicio.cambiarPass(codigo, nuevoPass);
+		
+		//redirigir a ??
+		//request.getRequestDispatcher("??").forward(request, response);
+	}
+
 	private void cerrarSesion(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		HttpSession sesion = request.getSession();

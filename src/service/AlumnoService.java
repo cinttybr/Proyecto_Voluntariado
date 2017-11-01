@@ -39,5 +39,13 @@ public class AlumnoService {
 		// TODO Auto-generated method stub
 		return obj.buscarCodigoAlumno(cod);
 	}
+	
+	public int anotarActividad(String codAlu, int codAct)
+	{
+		return obj.anotarActividad(codAlu, codAct);
+	}
+	
+	//public int 
+	
 
 }

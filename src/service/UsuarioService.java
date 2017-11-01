@@ -46,4 +46,11 @@ public class UsuarioService
 		// TODO Auto-generated method stub
 		 objUsuario.habilitarUsuario(codigo, habilitado);
 	}
+	
+	
+	public void cambiarPass(String codigo, String nuevoPass)
+	{
+		objUsuario.cambiarPass(codigo, nuevoPass);
+	}
+	
 }

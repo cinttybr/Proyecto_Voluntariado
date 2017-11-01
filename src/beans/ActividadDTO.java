@@ -14,7 +14,7 @@ public class ActividadDTO
 	private String horaFin;
 	private String cod_docente;
 	private String nom_usuario;
-	private int codEstado;
+	private int codEstado; //1 aprobado 2 en revision 3 descartado
 	private String nombreEstado;
 	private String motivoEstado;
 	

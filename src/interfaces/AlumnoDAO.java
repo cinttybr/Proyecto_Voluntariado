@@ -14,4 +14,6 @@ public interface AlumnoDAO {
 	public int eliminarAlumno(String codigo);
 	public AlumnoDTO buscarCodigoAlumno(String cod);
 	
+	public int anotarActividad(String codAlu,int codAct);
+	
 }

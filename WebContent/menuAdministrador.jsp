@@ -20,7 +20,7 @@
       <li class="active"><a href="menuAdministrador.jsp">Inicio</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Instituciones <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="registrarInstitucion.jsp">Registrar Institución</a></li>
+          <li><a href="registrarInstitucion.jsp">Registrar InstituciÃ³n</a></li>
           <li><a href="ServletInstitucion?tipo=listarIns">Lista de Instituciones</a></li>
         </ul>
       </li>
@@ -35,7 +35,14 @@
           <li><a href="registrarUsuario.jsp">Registrar Docente</a></li>
           <li><a href="registrarAlumno.jsp">Registrar Alumno</a></li>
         </ul>
-      </li>     
+      </li>  
+	    <!-- DANTE -->
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Comentarios y CalificaciÃ³n <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="ServletInstitucion?tipo=insNombres">Registrar</a></li>
+          <li><a href="ServletInstitucion?tipo=reporteComentarios">Ver Reporte</a></li>
+        </ul>
+      </li>  
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <%
@@ -51,7 +58,7 @@
       <%=valores %>
       </font>
       </a></li>
-      <li><a href="ServletUsuario?tipo=cerrarSesion"><span class="glyphicon glyphicon-log-in"></span> Cerrar Sesión</a></li>
+      <li><a href="ServletUsuario?tipo=cerrarSesion"><span class="glyphicon glyphicon-log-in"></span> Cerrar SesiÃ³n</a></li>
     </ul>
   </div>
 </nav>

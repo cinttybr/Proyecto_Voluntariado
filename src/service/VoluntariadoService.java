@@ -49,7 +49,10 @@ public class VoluntariadoService
 	{
 		return objVol.buscarPorSeccion(seccion);
 	}
-	
+	public List<VoluntariadoDTO> controlDeAlumno(String codigoAlumno)
+	{
+		return objVol.controlDeAlumno(codigoAlumno);
+	}
 	public List<VoluntariadoDTO> buscarHorasAlumno(String codigoAlumno)
 	{
 		return objVol.buscarHorasAlumno(codigoAlumno);

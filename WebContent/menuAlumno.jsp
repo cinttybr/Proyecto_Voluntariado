@@ -20,7 +20,7 @@
       <li class="active"><a href="menuAlumno">Inicio</a></li>
       <li><a href="ServletActividad?tipo=listarActividadVol">Ver actividades</a></li>
       <li><a href="listarVoluntarios.jsp">Ver Voluntarios</a></li>
-      <li><a href="buscarAlumno.jsp">Mis participaciones</a></li>
+      <li><a href="verParticipacionesRealizadas.jsp">Mis participaciones</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
     

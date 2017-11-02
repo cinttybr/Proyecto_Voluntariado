@@ -33,7 +33,10 @@
 		               		<br>
 		               		<h1 class="title" id="label-font-pas">EDITAR PERFIL</h1> 		
 		            </div> 
-				        <form action=? method="post">
+		            <!-- 
+		            <sql:query var="ejemplos" dataSource="${localSource}" sql="select * from tb_usuario where cod_usu = ?"></sql:query>
+		             -->
+				        <form action=ServletUsuario?tipo=cambiarPass method="post">
 				        	<div class="col-sm-4"></div>
 								<div class="col-sm-4 form-group">
 									<br>

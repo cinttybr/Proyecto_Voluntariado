@@ -25,7 +25,7 @@
 					   var="localSource"
 					   user="root"
 					   password="admin123"/>
-	<sql:query var="ejemplos" dataSource="${localSource}" sql="select * from tb_actividad"></sql:query>
+	<sql:query var="ejemplos" dataSource="${localSource}" sql="select * from tb_actividad where cod_estado = 1"></sql:query>
 <div class="container" style="width:450px">
 	<form action="ServletVoluntariado?tipo=registrar" id="formulario" method="post">	
   <p>
@@ -36,7 +36,7 @@
   <div class="form-group">
       <label for="nm">
       <font color="white" size="3">
-      Código de Alumno(a):
+      Mí código:
       </font>
       </label>
       <%
@@ -52,7 +52,7 @@
     <div class="form-group">
       <label for="sel1">
       <font color="white" size="3">
-      Actividad:
+      Actividad a participar:
       </font>
       </label>
       <select name="cbo_actividad"class="form-control" id="sel1">
@@ -62,7 +62,7 @@
 						</c:forEach>
       </select>
     </div> 
-    <button type="submit" class="btn btn-primary">REGISTRARME</button>
+    <button type="submit"  class="btn btn-primary">REGISTRARME</button>
     <input type="button" value="CANCELAR" class="btn btn-primary" 
 			onclick="location.href='http://localhost:8080/Proyecto_Voluntariado/menuAlumno.jsp'"/>
   </form>

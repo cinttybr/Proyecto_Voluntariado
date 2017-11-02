@@ -40,6 +40,23 @@ public class ServletAlumno extends HttpServlet {
 		String xtipo = request.getParameter("tipo");
 		if(xtipo.equals("registrar"))
 			registrar(request,response);
+		if(xtipo.equals("actividad"))
+			actividad(request,response);
+		
+	}
+
+	private void actividad(HttpServletRequest request, HttpServletResponse response) {
+		
+		/*antes de llegar aqui verificar si se cumplen condiciones 
+		 * con jstl en lado cliente
+		 */
+		String codAlu = request.getParameter("txt_codAlu");
+		int codAct = Integer.parseInt(request.getParameter("txt_codAct"));
+		
+		
+		service.anotarActividad(codAlu, codAct);
+		
+		// request.getRequestDispatcher("??").forward(request, response);
 		
 	}
 

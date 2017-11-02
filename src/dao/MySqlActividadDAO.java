@@ -65,9 +65,9 @@ public class MySqlActividadDAO implements ActividadDAO
 		ResultSet rs = null;
 				try {
 					cn = new MySqlDBConexion().getConexion();
-					String sql="select a.cod_act, i.nom_ins,a.nom_act, a.des_act, a.fecha_act, a.horainicio_act, a.horafin_act, Concat(u.nom_usu,' ',u.ape_usu) as nombredocente, e.nom_estado,a.motivo_estado, a.max_vacantes, a.min_vacantes"+
-					" from tb_actividad a inner join tb_institucion i on i.cod_ins = a.cod_ins inner join tb_estado e on e.cod_estado = a.cod_estado"+
-					" inner join tb_docente d on d.cod_doc = a.cod_doc inner join tb_usuario u on u.cod_usu = d.cod_usu";
+					String sql="select a.cod_act, i.nom_ins,a.nom_act, a.des_act, a.fecha_act, a.horainicio_act, a.horafin_act, Concat(u.nom_usu,' ',u.ape_usu) as nombredocente, e.nom_estado,a.motivo_estado,"+
+							" a.max_vacantes, a.min_vacantes from tb_actividad a inner join tb_institucion i on i.cod_ins = a.cod_ins inner join tb_estado e"+
+							" on e.cod_estado = a.cod_estado inner join tb_docente d on d.cod_doc = a.cod_doc inner join tb_usuario u on u.cod_usu = d.cod_usu";
 					pstm = cn.prepareStatement(sql);
 					rs = pstm.executeQuery();
 					while (rs.next()){
@@ -103,9 +103,9 @@ public class MySqlActividadDAO implements ActividadDAO
 		ResultSet rs = null;
 				try {
 					cn = new MySqlDBConexion().getConexion();
-					String sql="select a.cod_act, i.nom_ins,a.nom_act, a.des_act, a.fecha_act, a.horainicio_act, a.horafin_act, concat(u.nom_usu,' ',u.ape_usu) as nombredocente, e.nom_estado,a.motivo_estado, a.max_vacantes, a.min_vacantes"+
-							" from tb_actividad a inner join tb_institucion i on i.cod_ins = a.cod_ins inner join tb_estado e on e.cod_estado = a.cod_estado"+
-							" inner join tb_docente d on d.cod_doc = a.cod_doc inner join tb_usuario u on u.cod_usu=d.cod_usu Where e.nom_estado = 'Aprobado'";
+					String sql="select a.cod_act, i.nom_ins,a.nom_act, a.des_act, a.fecha_act, a.horainicio_act, a.horafin_act, Concat(u.nom_usu,' ',u.ape_usu) as nombredocente, e.nom_estado,a.motivo_estado,"+
+							" a.max_vacantes, a.min_vacantes from tb_actividad a inner join tb_institucion i on i.cod_ins = a.cod_ins inner join tb_estado e"+
+							" on e.cod_estado = a.cod_estado inner join tb_docente d on d.cod_doc = a.cod_doc inner join tb_usuario u on u.cod_usu = d.cod_usu Where e.nom_estado = 'Aprobado'";
 					pstm = cn.prepareStatement(sql);
 					rs = pstm.executeQuery();
 					while (rs.next()){
@@ -192,7 +192,7 @@ public class MySqlActividadDAO implements ActividadDAO
 		PreparedStatement pstm=null;
 		try {
 			cn= new MySqlDBConexion().getConexion();
-			String sql="Update tb_actividad set cod_ins=?,nom_act=?,des_act=?,fecha_act=?,horainicio_act=?,horafin_act=?,cod_doc=?,cod_estado=?,motivo_estado=?,max_vacantes=?,min_vacantes=? where cod_act=?";
+			String sql="Update tb_actividad set cod_ins=?,nom_act=?,des_act=?,fecha_act=?,horainicio_act=?,horafin_act=?,cod_doc=?,cod_estado=?,motivo_estado=?,min_vacantes=?,max_vacantes=? where cod_act=?";
 			pstm=cn.prepareStatement(sql);
 			pstm.setInt(1, obj.getCod_institucion());
 			pstm.setString(2, obj.getNombre());
@@ -266,9 +266,9 @@ public class MySqlActividadDAO implements ActividadDAO
 		try
 		{
 			cn = new MySqlDBConexion().getConexion();
-			String sql= "select a.cod_act, i.nom_ins,a.nom_act, a.des_act, a.fecha_act, a.horainicio_act, a.horafin_act, concat(u.nom_usu,' ',u.ape_usu) as nombredocente, e.nom_estado,a.motivo_estado, a.max_vacantes, a.min_vacantes"+
-					" from tb_actividad a inner join tb_institucion i on i.cod_ins = a.cod_ins inner join tb_estado e on e.cod_estado = a.cod_estado"+
-					" inner join tb_docente d on d.cod_doc = a.cod_doc inner join tb_usuario u on u.cod_usu=d.cod_usu Where e.nom_estado = ?";
+			String sql="select a.cod_act, i.nom_ins,a.nom_act, a.des_act, a.fecha_act, a.horainicio_act, a.horafin_act, Concat(u.nom_usu,' ',u.ape_usu) as nombredocente, e.nom_estado,a.motivo_estado,"+
+					" a.max_vacantes, a.min_vacantes from tb_actividad a inner join tb_institucion i on i.cod_ins = a.cod_ins inner join tb_estado e"+
+					" on e.cod_estado = a.cod_estado inner join tb_docente d on d.cod_doc = a.cod_doc inner join tb_usuario u on u.cod_usu = d.cod_usu Where e.nom_estado = ?";
 					
 			pstm = cn.prepareStatement(sql);
 			pstm.setString(1, nombreEstado);
@@ -312,9 +312,9 @@ public class MySqlActividadDAO implements ActividadDAO
 		try
 		{
 			cn = new MySqlDBConexion().getConexion();
-			String sql= "select a.cod_act, i.nom_ins,a.nom_act, a.des_act, a.fecha_act, a.horainicio_act, a.horafin_act, concat(u.nom_usu,' ',u.ape_usu) as nombredocente, e.nom_estado,a.motivo_estado, a.max_vacantes, a.min_vacantes"+
-					" from tb_actividad a inner join tb_institucion i on i.cod_ins = a.cod_ins inner join tb_estado e on e.cod_estado = a.cod_estado"+
-					" inner join tb_docente d on d.cod_doc = a.cod_doc inner join tb_usuario u on u.cod_usu=d.cod_usu Where a.fecha_act = ?";
+			String sql="select a.cod_act, i.nom_ins,a.nom_act, a.des_act, a.fecha_act, a.horainicio_act, a.horafin_act, Concat(u.nom_usu,' ',u.ape_usu) as nombredocente, e.nom_estado,a.motivo_estado,"+
+					" a.max_vacantes, a.min_vacantes from tb_actividad a inner join tb_institucion i on i.cod_ins = a.cod_ins inner join tb_estado e"+
+					" on e.cod_estado = a.cod_estado inner join tb_docente d on d.cod_doc = a.cod_doc inner join tb_usuario u on u.cod_usu = d.cod_usu Where a.fecha_act = ?";
 					
 			pstm = cn.prepareStatement(sql);
 			pstm.setDate(1, fecha);

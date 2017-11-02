@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import beans.VoluntariadoDTO;
+import service.AlumnoService;
 import service.VoluntariadoService;
 
 /**
@@ -21,6 +22,7 @@ public class ServletVoluntariado extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	VoluntariadoService serviVoluntariado = new VoluntariadoService();
+	AlumnoService serviAlumno = new AlumnoService();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -235,6 +237,7 @@ public class ServletVoluntariado extends HttpServlet {
 	{
 		int cod = Integer.parseInt(request.getParameter("cod"));
 		serviVoluntariado.EliminaVoluntariado(cod);
+		// necesario eliminar el codigo de actividad en alumno? 
 		buscarActividad(request, response);
 	}
 
@@ -259,6 +262,7 @@ public class ServletVoluntariado extends HttpServlet {
 			obj.setJustificacion(justificacion);
 			obj.setHoras(Integer.parseInt(horas));
 			serviVoluntariado.actualizaVoluntariado(obj);
+			serviAlumno.anotarActividad(alumno, actividad);
 			buscarActividad(request, response);
 	}
 	private void actualizarVol(HttpServletRequest request, HttpServletResponse response) throws ParseException 
@@ -275,6 +279,7 @@ public class ServletVoluntariado extends HttpServlet {
 			obj.setCodigoAlumno(alumno);
 			obj.setCodigoActividad(actividad);
 			serviVoluntariado.actualizaVoluntariado(obj);
+			serviAlumno.anotarActividad(alumno, actividad); // necesario?
 			listar(request, response);
 	}
 
@@ -322,12 +327,14 @@ public class ServletVoluntariado extends HttpServlet {
 		String horas = request.getParameter("txt_horas");
 	
 		VoluntariadoDTO obj =new VoluntariadoDTO();
+		
 			obj.setCodigoAlumno(alumno);
 			obj.setCodigoActividad(actividad);
 			obj.setAsistencia(asistencia);
 			obj.setJustificacion(justificacion);
 			obj.setHoras(Integer.parseInt(horas));
 			serviVoluntariado.registraVoluntariado(obj);
+			serviAlumno.anotarActividad(alumno, actividad);
 			listar(request, response);
 	}
 

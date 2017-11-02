@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import beans.VoluntariadoDTO;
+import service.ActividadService;
 import service.AlumnoService;
 import service.VoluntariadoService;
 
@@ -23,6 +24,7 @@ public class ServletVoluntariado extends HttpServlet {
        
 	VoluntariadoService serviVoluntariado = new VoluntariadoService();
 	AlumnoService serviAlumno = new AlumnoService();
+	ActividadService serviActividad = new ActividadService();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -345,13 +347,20 @@ public class ServletVoluntariado extends HttpServlet {
 
 	private void registrar(HttpServletRequest request, HttpServletResponse response) throws ParseException 
 	{
+		
+		
+		
 		int actividad;
 		
+			
 		String alumno = request.getParameter("txt_alumno");	
 		actividad = Integer.parseInt(request.getParameter("cbo_actividad"));
 		
 		String asistencia = request.getParameter("r_asistencia");
 		String justificacion = request.getParameter("txt_justificacion");
+		
+		int nparticipantes = serviActividad.alumnosAnotados(actividad);
+		//if(nparticipantes == )
 	
 		VoluntariadoDTO obj =new VoluntariadoDTO();
 		
@@ -359,7 +368,13 @@ public class ServletVoluntariado extends HttpServlet {
 			obj.setCodigoActividad(actividad);
 			obj.setAsistencia(asistencia);
 			obj.setJustificacion(justificacion);
+			
+			
+			
+			
 			serviVoluntariado.registraVoluntariado(obj);
+			
+						
 			serviAlumno.anotarActividad(alumno, actividad);
 			listar(request, response);
 	}

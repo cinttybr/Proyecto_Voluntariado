@@ -18,6 +18,6 @@ public interface ActividadDAO
 	public List<ActividadDTO> buscarPorFecha(Date fecha);
 	
 	public int cambiarEstado(int codAct, int codEst );//1 aprobado 2 en revision 3 descartado
-	public int alumnosAnotados(String codAct);
+	public int alumnosAnotados(int codAct);
 	
 }

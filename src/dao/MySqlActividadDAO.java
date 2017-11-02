@@ -381,7 +381,7 @@ public class MySqlActividadDAO implements ActividadDAO
 	}
 
 	@Override
-	public int alumnosAnotados(String codAct) {
+	public int alumnosAnotados(int codAct) {
 		
 		int num=0;
 		Connection cn = null;
@@ -392,7 +392,7 @@ public class MySqlActividadDAO implements ActividadDAO
 			cn = new MySqlDBConexion().getConexion();
 			String sql = "select Count(cod_alu) from tb_alumno where cod_act=?";
 			pstm = cn.prepareStatement(sql);
-			pstm.setString(1, codAct);
+			pstm.setInt(1, codAct);
 			rs = pstm.executeQuery();
 			if(rs.next())
 			{

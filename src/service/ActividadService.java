@@ -56,7 +56,7 @@ public class ActividadService
 		return objAct.cambiarEstado(codAct, codEst);
 	}
 	
-	public int alumnosAnotados(String codAct)
+	public int alumnosAnotados(int codAct)
 	{
 		//mejor usar jstl?
 		return objAct.alumnosAnotados(codAct);

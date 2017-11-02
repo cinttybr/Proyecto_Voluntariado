@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.ComentariosDTO;
 import beans.InstitucionDTO;
 import service.InstitucionService;
 
@@ -41,7 +42,79 @@ public class ServletInstitucion extends HttpServlet {
 			actualizar(request,response);
 		else if(xtipo.equals("eliminar"))
 			eliminar(request,response);
+		
+		
+		else if(xtipo.equals("registrarComentarios"))
+			registrarComentarios(request,response);
+		else if(xtipo.equals("reporteComentarios"))
+			reporteComentarios(request,response);
+		else if(xtipo.equals("insNombres"))
+			insNombres(request,response);
+		else if(xtipo.equals("buscarCOD"))
+			buscarCOD(request,response);
 	}
+	
+	private void insNombres(HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("data", serviInstitucion.listaInstitucionNombre());
+		{
+			try{
+				request.getRequestDispatcher("mostrarInstitucionesParaCalificar.jsp").forward(request, response);
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private void reporteComentarios(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		request.setAttribute("data", serviInstitucion.listarComentariosCaliInstitucion());
+		{
+			try{
+				request.getRequestDispatcher("reporteComentariosCalificacion.jsp").forward(request, response);
+			}catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	private void buscarCOD(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int cod=Integer.parseInt(request.getParameter("cod"));
+		request.setAttribute("Institucion",serviInstitucion.buscaInstitucionParaCalificar(cod));
+		request.getRequestDispatcher("registrarComentariosCalificacion.jsp").
+		forward(request, response);
+		
+	}
+
+	private void registrarComentarios(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		String comentarios=request.getParameter("txt_comentarios");
+		int calificacion=Integer.parseInt(request.getParameter("txt_calificacion"));
+		
+		ComentariosDTO obj=new ComentariosDTO();
+			obj.setComentarios(comentarios);
+			obj.setCalificacion(calificacion);
+			serviInstitucion.registraComentarios(obj);
+			insNombres(request, response);
+			request.setAttribute("msg", "Datos registrados!");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	private void registrar(HttpServletRequest request, HttpServletResponse response)
 	{	

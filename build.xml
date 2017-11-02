@@ -19,8 +19,8 @@
    		<jar jarfile="${dist}/lib/MyProject-${DSTAMP}.jar" basedir="${build}"/>
  	</target>
        <target name="build" depends="compile">
-             <jar destfile="build/proyecto.jar" basedir="classes" />
-     </target>
+              <jar destfile="build/proyecto.jar" basedir="classes" />
+    </target>
  	<target name="clean" description="clean up" >
    		<delete dir="${build}"/>
    		<delete dir="${dist}"/>

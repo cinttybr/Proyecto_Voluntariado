@@ -7,6 +7,17 @@ public class InstitucionDTO
 	private String caracteristicas;
 	private String direccion;
 	private String telefono;
+	
+	private String comentarios;
+	private int calificacion;
+	
+	public int getCalificacion() {
+		return calificacion;
+	}
+	public void setCalificacion(int calificacion) {
+		this.calificacion = calificacion;
+	}
+	
 	public int getCodigo() {
 		return codigo;
 	}

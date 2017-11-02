@@ -1,8 +1,10 @@
 package service;
 
 import java.util.List;
-
+import beans.ComentariosDTO;
 import beans.InstitucionDTO;
+import beans.InstitucionNombresDTO;
+import beans.ReporteComentCalificacionDTO;
 import dao.DAOFactory;
 import interfaces.InstitucionDAO;
 
@@ -10,6 +12,29 @@ public class InstitucionService
 {
 	DAOFactory fabrica = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 	InstitucionDAO objIns = fabrica.getInstitucion();
+	
+	
+	public List<ReporteComentCalificacionDTO> listarComentariosCaliInstitucion()
+	{
+		return objIns.listarComentariosCalificacion();
+	}
+	public int registraComentarios(ComentariosDTO obj)
+	{
+		return objIns.registrarComentariosInstitucion(obj);
+	}
+	public List<InstitucionNombresDTO> listaInstitucionNombre()
+	{
+		return objIns.listarInstitucionNombres();
+	}
+
+	public ComentariosDTO buscaInstitucionParaCalificar(int cod)
+	{
+		return objIns.buscarInstitucionCOMENTARIOS(cod);
+	}
+	
+	
+	
+	
 	
 	public List<InstitucionDTO> listaInstitucion()
 	{

@@ -50,6 +50,15 @@ public class ServletVoluntariado extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(xtipo.equals("controlAlumno"))
+		{
+			try {
+				controlAlumno(request,response);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		else if(xtipo.equals("porAlumno"))
 		{
 			try {
@@ -167,7 +176,7 @@ public class ServletVoluntariado extends HttpServlet {
 		
 		try
 			{
-				request.getRequestDispatcher("controlVoluntarios.jsp").forward(request, response);
+				request.getRequestDispatcher("controlAsistencia.jsp").forward(request, response);
 			}
 		catch(ServletException e)
 			{
@@ -184,7 +193,7 @@ public class ServletVoluntariado extends HttpServlet {
 		
 		try
 			{
-				request.getRequestDispatcher("buscarAlumno.jsp").forward(request, response);
+				request.getRequestDispatcher("verParticipacionesRealizadas.jsp").forward(request, response);
 			}
 		catch(ServletException e)
 			{
@@ -195,6 +204,25 @@ public class ServletVoluntariado extends HttpServlet {
 				e.printStackTrace();
 			}		
 	}
+	
+	private void controlAlumno(HttpServletRequest request, HttpServletResponse response) throws ParseException
+	{
+		request.setAttribute("data", serviVoluntariado.controlDeAlumno( request.getParameter("txt_codigo")));
+		
+		try
+			{
+				request.getRequestDispatcher("controlAlumno.jsp").forward(request, response);
+			}
+		catch(ServletException e)
+			{
+				e.printStackTrace();
+			}
+		catch(IOException e)
+			{
+				e.printStackTrace();
+			}		
+	}
+	
 	private void buscarSeccion(HttpServletRequest request, HttpServletResponse response) throws ParseException
 	{
 		request.setAttribute("data", serviVoluntariado.buscarPorSeccion( request.getParameter("txt_seccion")));
@@ -319,14 +347,12 @@ public class ServletVoluntariado extends HttpServlet {
 		
 		String asistencia = request.getParameter("r_asistencia");
 		String justificacion = request.getParameter("txt_justificacion");
-		String horas = request.getParameter("txt_horas");
 	
 		VoluntariadoDTO obj =new VoluntariadoDTO();
 			obj.setCodigoAlumno(alumno);
 			obj.setCodigoActividad(actividad);
 			obj.setAsistencia(asistencia);
 			obj.setJustificacion(justificacion);
-			obj.setHoras(Integer.parseInt(horas));
 			serviVoluntariado.registraVoluntariado(obj);
 			listar(request, response);
 	}

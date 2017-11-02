@@ -13,6 +13,7 @@ public interface VoluntariadoDAO
 	public int eliminarVoluntariado(int cod);
 	public List<VoluntariadoDTO> buscarPorActividad(String nombreActividad);
 	public List<VoluntariadoDTO> buscarPorAlumno(String codigoAlumno);
+	public List<VoluntariadoDTO> controlDeAlumno(String codigoAlumno);
 	public List<VoluntariadoDTO> buscarHorasAlumno(String codigoAlumno);
 	List<VoluntariadoDTO> buscarPorSeccion(String seccion);
 }

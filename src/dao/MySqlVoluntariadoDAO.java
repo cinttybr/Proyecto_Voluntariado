@@ -31,7 +31,7 @@ public class MySqlVoluntariadoDAO implements VoluntariadoDAO
 			pstm.setString(4, obj.getJustificacion());
 			pstm.setInt(5, obj.getHoras());
 			estado=pstm.executeUpdate();
-			JOptionPane.showMessageDialog(null, "DATOS REGISTRADOS!: "+estado);
+			//JOptionPane.showMessageDialog(null, "DATOS REGISTRADOS!: "+estado);
 		} catch (Exception e) 
 		{
 			e.printStackTrace();
@@ -56,9 +56,9 @@ public class MySqlVoluntariadoDAO implements VoluntariadoDAO
 		ResultSet rs = null;
 				try {
 					cn = new MySqlDBConexion().getConexion();
-					String sql= "select v.cod_vol, a.nom_alu, ac.nom_act, v.asistencia, v.justificacion, v.horas"+
-							" from tb_voluntariado v inner join tb_alumno a on a.cod_alu = v.cod_alu inner join tb_actividad ac"+
-							" on ac.cod_act = v.cod_act";
+					String sql= "select v.cod_vol, ac.nom_act,concat (u.nom_usu,' ',u.ape_usu) as nombrealumno, v.asistencia, v.justificacion, v.horas from tb_voluntariado v"+
+					" inner join tb_alumno a on a.cod_alu = v.cod_alu inner join tb_actividad ac"+
+					" on ac.cod_act = v.cod_act inner join tb_usuario u on u.cod_usu = a.cod_usu";
 					pstm = cn.prepareStatement(sql);
 					rs = pstm.executeQuery();
 					while (rs.next()){
@@ -140,7 +140,7 @@ public class MySqlVoluntariadoDAO implements VoluntariadoDAO
 			pstm.setInt(5, obj.getHoras());
 			pstm.setInt(6, obj.getCodigo());
 			estado=pstm.executeUpdate();
-			JOptionPane.showMessageDialog(null, "DATOS ACTUALIZADOS!: "+estado);
+			//JOptionPane.showMessageDialog(null, "DATOS ACTUALIZADOS!: "+estado);
 		} catch (Exception e) 
 		{
 			e.printStackTrace();
@@ -168,9 +168,9 @@ public class MySqlVoluntariadoDAO implements VoluntariadoDAO
 		try
 		{
 			cn = new MySqlDBConexion().getConexion();
-			String sql= "select v.cod_vol, a.nom_alu, ac.nom_act, v.asistencia, v.justificacion, v.horas"+
-					" from tb_voluntariado v inner join tb_alumno a on a.cod_alu = v.cod_alu inner join tb_actividad ac"+
-					" on ac.cod_act = v.cod_act Where ac.nom_act = ?";
+			String sql= "select v.cod_vol, ac.nom_act,concat (u.nom_usu,' ',u.ape_usu) as nombrealumno, v.asistencia, v.justificacion, v.horas from tb_voluntariado v"+
+					" inner join tb_alumno a on a.cod_alu = v.cod_alu inner join tb_actividad ac"+
+					" on ac.cod_act = v.cod_act inner join tb_usuario u on u.cod_usu = a.cod_usu Where ac.nom_act = ?";
 					
 			pstm = cn.prepareStatement(sql);
 			pstm.setString(1, nombreActividad);
@@ -180,8 +180,8 @@ public class MySqlVoluntariadoDAO implements VoluntariadoDAO
 			{
 				obj = new VoluntariadoDTO();
 				obj.setCodigo(rs.getInt(1));
-				obj.setNomAlumno(rs.getString(2));
-				obj.setNomActividad(rs.getString(3));
+				obj.setNomActividad(rs.getString(2));
+				obj.setNomAlumno(rs.getString(3));
 				obj.setAsistencia(rs.getString(4));
 				obj.setJustificacion(rs.getString(5));
 				obj.setHoras(rs.getInt(6));
@@ -208,9 +208,9 @@ public class MySqlVoluntariadoDAO implements VoluntariadoDAO
 		try
 		{
 			cn = new MySqlDBConexion().getConexion();
-			String sql= "select v.cod_vol, a.nom_alu, ac.nom_act, v.asistencia, v.justificacion, v.horas"+
-					" from tb_voluntariado v inner join tb_alumno a on a.cod_alu = v.cod_alu inner join tb_actividad ac"+
-					" on ac.cod_act = v.cod_act Where v.cod_alu = ?";
+			String sql= "select v.cod_vol, ac.nom_act,concat (u.nom_usu,' ',u.ape_usu) as nombrealumno, v.asistencia, v.justificacion, v.horas from tb_voluntariado v"+
+					" inner join tb_alumno a on a.cod_alu = v.cod_alu inner join tb_actividad ac"+
+					" on ac.cod_act = v.cod_act inner join tb_usuario u on u.cod_usu = a.cod_usu Where v.cod_alu = ?";
 					
 			pstm = cn.prepareStatement(sql);
 			pstm.setString(1, codigoAlumno);
@@ -235,6 +235,44 @@ public class MySqlVoluntariadoDAO implements VoluntariadoDAO
 		
 		return data;
 	}
+	
+	@Override
+	public List<VoluntariadoDTO> controlDeAlumno(String codigoAlumno) 
+	{
+		List<VoluntariadoDTO> data = new ArrayList<VoluntariadoDTO>();
+		VoluntariadoDTO obj = null;
+		Connection cn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
+		try
+		{
+			cn = new MySqlDBConexion().getConexion();
+			String sql= "select v.cod_vol, ac.nom_act, v.horas from tb_voluntariado v"+
+					" inner join tb_alumno a on a.cod_alu = v.cod_alu inner join tb_actividad ac"+
+					" on ac.cod_act = v.cod_act inner join tb_usuario u on u.cod_usu = a.cod_usu Where v.cod_alu = ?";
+					
+			pstm = cn.prepareStatement(sql);
+			pstm.setString(1, codigoAlumno);
+
+			rs = pstm.executeQuery();
+			while(rs.next())
+			{
+				obj = new VoluntariadoDTO();
+				obj.setCodigo(rs.getInt(1));
+				obj.setNomActividad(rs.getString(3));
+				obj.setHoras(rs.getInt(6));
+				data.add(obj);
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return data;
+	}
+	
 	@Override
 	public List<VoluntariadoDTO> buscarPorSeccion(String seccion) 
 	{
@@ -287,7 +325,7 @@ public class MySqlVoluntariadoDAO implements VoluntariadoDAO
 		try
 		{
 			cn = new MySqlDBConexion().getConexion();
-			String sql = "SELECT a.nom_alu, SUM(v.horas)FROM tb_voluntariado v inner join tb_alumno a on "+
+			String sql = "SELECT a.nom_usu, SUM(v.horas)FROM tb_voluntariado v inner join tb_alumno a on "+
 					"a.cod_alu=v.cod_alu WHERE v.cod_alu=?";
 					
 			pstm = cn.prepareStatement(sql);
@@ -322,7 +360,7 @@ public class MySqlVoluntariadoDAO implements VoluntariadoDAO
 			pstm=cn.prepareStatement(sql);
 			pstm.setInt(1, cod);
 			estado=pstm.executeUpdate();
-			JOptionPane.showMessageDialog(null, "SE ELIMINO LOS DATOS!: "+estado);
+			//JOptionPane.showMessageDialog(null, "SE ELIMINÓ LOS DATOS!: "+estado);
 		} catch (Exception e) {
 				e.printStackTrace();
 			}

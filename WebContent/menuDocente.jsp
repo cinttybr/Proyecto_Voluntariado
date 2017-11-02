@@ -52,7 +52,8 @@
         </ul>
     </li>
     
-    <li><a href="controlVoluntarios.jsp">Control de Asistencia</a></li>
+    <li><a href="controlAsistencia.jsp">Control de Asistencia</a></li>
+    <li><a href="controlAlumno.jsp">Control de Alumno</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <%

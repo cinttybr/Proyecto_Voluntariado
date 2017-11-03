@@ -23,7 +23,7 @@ public class MySqlInstitucionDAO implements InstitucionDAO
 		PreparedStatement pstm=null;
 		try {
 			cn= new MySqlDBConexion().getConexion();
-			String sql="update tb_institucion set comentarios=?,calificacion=? where cod_ins=?";
+			String sql="update tb_institucion set comentarios=?,cod_calificacion=? where cod_ins=?";
 			pstm=cn.prepareStatement(sql);
 			pstm.setString(1, obj.getComentarios());
 			pstm.setInt(2, obj.getCalificacion());
@@ -107,7 +107,7 @@ public class MySqlInstitucionDAO implements InstitucionDAO
 		
 		try{
 			cn = new MySqlDBConexion().getConexion();
-			String sql = "SELECT i.comentarios,c.calificacion FROM tb_institucion "+
+			String sql = "SELECT i.cod_ins ,i.comentarios,c.cod_calificacion FROM tb_institucion "+
 			" i inner join tb_calificacion c on i.cod_calificacion=c.cod_calificacion WHERE cod_ins=?";
 			pstm = cn.prepareStatement(sql);
 			pstm.setInt(1, cod);
@@ -115,8 +115,9 @@ public class MySqlInstitucionDAO implements InstitucionDAO
 			if(rs.next())
 			{
 				obj = new ComentariosDTO();
-				obj.setComentarios(rs.getString(1));
-				obj.setCalificacion(rs.getInt(2));	
+				obj.setCodigo(rs.getInt(1));
+				obj.setComentarios(rs.getString(2));
+				obj.setCalificacion(rs.getInt(3));		
 			}
 			
 		}catch(SQLException ex)

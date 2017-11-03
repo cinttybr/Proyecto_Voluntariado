@@ -21,12 +21,12 @@
 	<input type="hidden" name="txt_cod" value="${requestScope.Institucion.codigo}">
   	<h2>
   	<font color="white" size="5">
-  	REGISTRAR CALIFICACION INSTITUCIÓN
+  	REGISTRAR CALIFICACION INSTITUCIÃ“N
   	</font>
   	</h2>
   <p>
   <font color="white" size="2">
-  Llenar el formulario a continuación:
+  Llenar el formulario a continuaciÃ³n:
   </font>
   </p>
   <div class="form-group">
@@ -40,7 +40,7 @@
     <div class="form-group">
       <label for="crt">
       <font color="white" size="3">
-      Calificación:
+      CalificaciÃ³n:
       </font>
       </label>
       <input type="text" name="txt_calificacion" class="form-control" id="text"  value="${requestScope.Institucion.calificacion}"> 
@@ -48,7 +48,7 @@
     
     <button type="submit" class="btn btn-primary">REGISTRAR</button>
     <input type="button" value="CANCELAR" class="btn btn-primary" 
-			onclick="location.href='http://localhost:8080/Proyecto_Voluntariado1.5/ServletInstitucion?tipo=insNombres'"/>
+			onclick="location.href='http://localhost:8080/Proyecto_Voluntariado/ServletInstitucion?tipo=insNombres'"/>
   </form>
 </div>		
 </body>

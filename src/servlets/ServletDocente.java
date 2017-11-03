@@ -199,6 +199,13 @@ public class ServletDocente extends HttpServlet {
 		
 		service.insertarDocente(docente);
 		
+		try {
+			request.getRequestDispatcher("menuAdministrador.jsp").forward(request, response);
+		} catch (ServletException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	
 			
 		

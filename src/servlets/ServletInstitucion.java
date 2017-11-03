@@ -92,8 +92,10 @@ public class ServletInstitucion extends HttpServlet {
 		// TODO Auto-generated method stub
 		String comentarios=request.getParameter("txt_comentarios");
 		int calificacion=Integer.parseInt(request.getParameter("txt_calificacion"));
+		int cod=Integer.parseInt(request.getParameter("txt_cod"));
 		
 		ComentariosDTO obj=new ComentariosDTO();
+			obj.setCodigo(cod);
 			obj.setComentarios(comentarios);
 			obj.setCalificacion(calificacion);
 			serviInstitucion.registraComentarios(obj);

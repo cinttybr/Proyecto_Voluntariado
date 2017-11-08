@@ -3,8 +3,7 @@ package interfaces;
 import java.util.List;
 
 import beans.AlumnoDTO;
-import beans.ReporteAlumnoDTO;
-import beans.VoluntariadoDTO;
+
 
 public interface AlumnoDAO {
 	

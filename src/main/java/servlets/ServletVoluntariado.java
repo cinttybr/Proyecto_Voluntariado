@@ -359,7 +359,7 @@ public class ServletVoluntariado extends HttpServlet {
 		String asistencia = request.getParameter("r_asistencia");
 		String justificacion = request.getParameter("txt_justificacion");
 		
-		int nparticipantes = serviActividad.alumnosAnotados(actividad);
+		//int nparticipantes = serviActividad.alumnosAnotados(actividad);
 		//if(nparticipantes == )
 	
 		VoluntariadoDTO obj =new VoluntariadoDTO();

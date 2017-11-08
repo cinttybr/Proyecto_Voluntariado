@@ -3,7 +3,6 @@ package service;
 import java.util.List;
 
 import beans.AlumnoDTO;
-import beans.ReporteAlumnoDTO;
 import dao.DAOFactory;
 import interfaces.AlumnoDAO;
 

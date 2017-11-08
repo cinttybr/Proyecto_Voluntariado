@@ -1,7 +1,7 @@
 package beans;
 
 import java.sql.Date;
-import java.util.Arrays;
+
 
 public class ReporteActividadDTO {
 

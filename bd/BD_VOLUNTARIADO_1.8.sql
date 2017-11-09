@@ -10,11 +10,11 @@ CREATE TABLE `tb_usuario` (
   `correo` varchar(50) DEFAULT NULL,
   `login_usu` varchar(15) NOT NULL,
   `pass_usu` varchar(20) NOT NULL,
- `cod_estado` int(5) NOT NULL references tb_estado, -- 10: activo, 11:inactivo
+ `cod_estado` int(5) NOT NULL references tb_estado, 
   PRIMARY KEY (`cod_usu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-											/*usuario y contrasea igual al codigo por ahora*/
+											
 insert into tb_usuario values 
 				('pmviscarra','juan','juan',99682448,'pmviscarra@cibertec','pmviscarra','123',10), 
 				('201514763','Julio','juan',99682448,'i201514763@cibertec','i201514763','cibertec',10),
@@ -40,7 +40,7 @@ create TABLE `tb_alumno` (
   PRIMARY KEY (`cod_alu`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-insert into tb_alumno values ('i201514763','i201514763',1,1,null), /*actividad se llena luego*/
+insert into tb_alumno values ('i201514763','i201514763',1,1,null), 
 							('i20157777', 'i20157777',1,1,null),
 							('i201774580','i201774580',3,4,null),
                             ('i201555555','i201555555',4,3,null);
@@ -89,7 +89,7 @@ CREATE TABLE `tb_actividad` (
   `horafin_act` varchar(20) NOT NULL,
   `cod_doc` varchar(14) NOT NULL references tb_docente,
   `cod_estado` int(5) NOT NULL references tb_estado,
-  `motivo_estado` varchar(100) NULL,/*s*/
+  `motivo_estado` varchar(100) NULL,
   `max_vacantes` int NULL,
   `min_vacantes` int NULL,
   
@@ -105,7 +105,7 @@ create table tb_voluntariado
     cod_act int(11) references tb_actividad,
     asistencia varchar(12) null, 
     justificacion varchar(30) null,
-    horas int null  /*se sumarian luego todas las horas de tablas con el mismo codigo de alumno*/
+    horas int null 
 );
 
 create table tb_carrera (
@@ -131,4 +131,3 @@ insert into tb_seccion values ('1','TA01',1),
                                 ('3','AEA01',3),
                                 ('4','CA01',4);
 
-select * from tb_alumno

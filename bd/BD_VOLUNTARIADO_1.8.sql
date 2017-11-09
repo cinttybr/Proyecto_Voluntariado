@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS bd_sistema;
 create database bd_sistema;
 
 use bd_sistema;

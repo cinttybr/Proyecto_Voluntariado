@@ -6,5 +6,3 @@ services:
   - mysql
 before-install:
  - mysql -u root --password="" < bd/BD_VOLUNTARIADO_1.8.sql
-before_script:
-  - mysql -u root --default-character-set=utf8 bd_sistema < bd/BD_VOLUNTARIADO_1.8.sql

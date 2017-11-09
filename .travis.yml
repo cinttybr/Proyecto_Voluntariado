@@ -2,3 +2,8 @@ language: java
 
 jdk:
   - oraclejdk8
+services:
+  - mysql
+before_script:
+  - mysql -e 'DROP DATABASE IF EXISTS bd_sistema'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS bd_sistema;'

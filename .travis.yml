@@ -4,5 +4,5 @@ jdk:
   - oraclejdk8
 services:
   - mysql
-before-install:
+before-script:
  - mysql -u root --password="" < bd/BD_VOLUNTARIADO_1.8.sql

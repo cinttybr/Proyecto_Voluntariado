@@ -5,4 +5,4 @@ jdk:
 services:
   - mysql
 before-install:
- - mysql -u root --password="" < bd/BD_VOLUNTARIADO_1.8.sql
+ - mysql -u travis --password="" < bd/BD_VOLUNTARIADO_1.8.sql

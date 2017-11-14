@@ -6,3 +6,5 @@ services:
   - mysql
 before-install:
  - mysql -u root --password="" < bd/BD_VOLUNTARIADO_1.8.sql
+after_success:
+- bash <(curl -s https://codecov.io/bash)

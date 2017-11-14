@@ -4,9 +4,9 @@ CREATE USER 'dev'@'localhost' IDENTIFIED BY 'dev';
 GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'dev'@'localhost';
 
 
-create database bd_sistema;
+create database bd_sistem;
 
-use bd_sistema;
+use bd_sistem;
 
 CREATE TABLE `tb_usuario` (
   `cod_usu` varchar(11) NOT NULL,

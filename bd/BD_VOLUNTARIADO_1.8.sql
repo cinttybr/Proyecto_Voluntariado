@@ -3,10 +3,15 @@
 CREATE USER 'dev'@'localhost' IDENTIFIED BY 'dev';
 GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'dev'@'localhost';
 
+/*
+create database bd_sistema;
 
-create database bd_sistem;
+use bd_sistema;*/
 
-use bd_sistem;
+
+CREATE DATABASE IF NOT EXISTS `bd_sistema` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `bd_sistema`;
+
 
 CREATE TABLE `tb_usuario` (
   `cod_usu` varchar(11) NOT NULL,

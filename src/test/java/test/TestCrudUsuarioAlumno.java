@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import beans.*;
 import dao.*;
+import service.AlumnoService;
+import service.UsuarioService;
 
 /*
  * ('1','Computacion e Informatica'),
@@ -22,11 +24,11 @@ import dao.*;
 
 public class TestCrudUsuarioAlumno {
 	
-	//AlumnoService alumnoser = new AlumnoService();
-	//UsuarioService usuarioser = new UsuarioService();
+	AlumnoService alumnoser = new AlumnoService();
+	UsuarioService usuarioser = new UsuarioService();
 	
-	MySqlAlumnoDAO alumnoser = new MySqlAlumnoDAO();
-	MySqlUsuarioDAO usuarioser = new MySqlUsuarioDAO();
+	//MySqlAlumnoDAO alumnoser = new MySqlAlumnoDAO();
+	//MySqlUsuarioDAO usuarioser = new MySqlUsuarioDAO();
 	
 	@Test
 	public void testtest()

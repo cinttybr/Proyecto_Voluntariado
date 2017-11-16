@@ -7,9 +7,9 @@ services:
 before-install:
  - mysql -u root --password="" < bd/BD_VOLUNTARIADO_1.8.sql
  before_script:
-  - "mysql -e 'create database bd_sistema;'"
+  - mysql -e 'create database bd_sistema;'
 after_failure:
-  - "mysql -e 'show databases;'"
+  - mysql -e 'show databases;'
  
 after_success:
 - bash <(curl -s https://codecov.io/bash)

@@ -1,15 +1,15 @@
 /*DROP DATABASE IF EXISTS bd_sistema;*/
-
+/*
 CREATE USER 'dev'@'localhost' IDENTIFIED BY 'dev';
 GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'dev'@'localhost';
-
+*/
 /*
 create database bd_sistema;
 
 use bd_sistema;*/
 
-
-CREATE DATABASE IF NOT EXISTS `bd_sistema` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+/*
+CREATE DATABASE IF NOT EXISTS `bd_sistema` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;*/
 USE `bd_sistema`;
 
 

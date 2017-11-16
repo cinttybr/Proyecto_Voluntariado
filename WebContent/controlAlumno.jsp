@@ -13,9 +13,9 @@
 <title>Seguimiento del Alumno</title>
 </head>
 <body>
-<jsp:include page="menuAlumno.jsp"/>
+<jsp:include page="menuDocente.jsp"/>
 <ul class="pager">
-  <li><a href="menuAlumno.jsp">«« Atrás</a></li>
+  <li><a href="menuDocente.jsp">Â«Â« AtrÃ¡s</a></li>
 </ul>
 	
 <div class="container">
@@ -28,7 +28,7 @@
   </p>
       <label for="sel1">
       <font color="white" size="3">
-      Código del alumno(a):
+      CÃ³digo del alumno(a):
       </font>
       </label>
       <br>

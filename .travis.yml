@@ -4,7 +4,7 @@ jdk:
   - oraclejdk8
 services:
   - mysql
-before-install:
+before_install:
  - mysql -u root --password="" -e 'CREATE DATABASE IF NOT EXISTS bd_sistema;'
  - mysql -u root --password="" bd_sistema < bd/BD_VOLUNTARIADO_1.8.sql
 

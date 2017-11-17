@@ -8,8 +8,7 @@ create database bd_sistema;
 
 use bd_sistema;*/
 
-/*
-CREATE DATABASE IF NOT EXISTS `bd_sistema` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;*/
+CREATE DATABASE IF NOT EXISTS `bd_sistema` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `bd_sistema`;
 
 

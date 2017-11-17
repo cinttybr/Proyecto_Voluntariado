@@ -8,7 +8,7 @@ before-install:
  - mysql -u root --password="" bd_sistema < bd/BD_VOLUNTARIADO_1.8.sql
 
 after_failure:
- - mysql -u root -p -e 'show databases;'
+ - mysql -u root --password="" -e 'show databases;'
  
 after_success:
 - bash <(curl -s https://codecov.io/bash)

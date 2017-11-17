@@ -259,8 +259,8 @@ public class MySqlVoluntariadoDAO implements VoluntariadoDAO
 			{
 				obj = new VoluntariadoDTO();
 				obj.setCodigo(rs.getInt(1));
-				obj.setNomActividad(rs.getString(3));
-				obj.setHoras(rs.getInt(6));
+				obj.setNomActividad(rs.getString(2));
+				obj.setHoras(rs.getInt(3));
 				data.add(obj);
 			}
 		}
@@ -359,7 +359,7 @@ public class MySqlVoluntariadoDAO implements VoluntariadoDAO
 			pstm=cn.prepareStatement(sql);
 			pstm.setInt(1, cod);
 			estado=pstm.executeUpdate();
-			//JOptionPane.showMessageDialog(null, "SE ELIMINÓ LOS DATOS!: "+estado);
+			//JOptionPane.showMessageDialog(null, "SE ELIMINÃ“ LOS DATOS!: "+estado);
 		} catch (Exception e) {
 				e.printStackTrace();
 			}

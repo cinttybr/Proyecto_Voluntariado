@@ -68,7 +68,7 @@
     <div class="container" style="width:310px">
 	<br>
 	<br>
-  <form action="IniciaSesion" name="frmSesion" method="post">
+  <form action="servletUsuario" name="frmSesion" method="post">
     <div class="form-group">
       <label for="text">
       <font color="white" size="3">

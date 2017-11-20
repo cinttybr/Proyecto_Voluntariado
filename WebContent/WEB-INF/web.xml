@@ -10,25 +10,25 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
- 
+ 	<!--  
   <servlet>
 		<servlet-name>IniciaSesion</servlet-name>
 		<servlet-class>
 		  servlets.ServletUsuario
 		</servlet-class>
 		
-		 <!-- 
+
 		<init-param>
 		<param-name>tipo</param-name>
 		<param-value>sesion</param-value>
 	</init-param>
-		 -->
-	</servlet>
- 
+		
+	 </servlet>
+
 	<servlet-mapping>
 		<servlet-name>IniciaSesion</servlet-name>
 		<url-pattern>/IniciaSesion</url-pattern>
 	</servlet-mapping>
-  
+   -->
   
 </web-app>

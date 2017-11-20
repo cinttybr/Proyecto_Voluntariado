@@ -14,7 +14,7 @@ import service.UsuarioService;
 /**
  * Servlet implementation class ServletUsuario
  */
-@WebServlet("/ServletUsuario")
+  @WebServlet("/servletUsuario")
 public class ServletUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,6 +31,14 @@ public class ServletUsuario extends HttpServlet {
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+	
+		response.getWriter().println("hola");
+	}
+    
+    
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		String xtipo = request.getParameter("tipo");
